@@ -150,13 +150,12 @@ addressInput.addEventListener("input", function(event){
 checkoutBtn.addEventListener("click", function(){
 
   const isOpen = checkRestaurantOpen();
-  if(isOpen){
+  if(!isOpen){
     
 
         Toastify({
             text: "Ops o restaurante está fechado!",
             duration: 3000,
-            newWindow: true,
             close: true,
             gravity: "top", // `top` or `bottom`
             position: "right", // `left`, `center` or `right`
