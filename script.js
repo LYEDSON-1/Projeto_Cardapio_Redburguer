@@ -49,6 +49,20 @@ menu.addEventListener("click", function(event){
 function addToCart(name, price){
    const existingItem = cart.find(item => item.name === name)
 
+   Toastify({
+    text: "O seu pedido foi adicionado!",
+    duration: 3000,
+    close: true,
+    gravity: "top", // `top` or `bottom`
+    position: "right", // `left`, `center` or `right`
+    stopOnFocus: true, // Prevents dismissing of toast on hover
+    style: {
+      background: "#0BE617",
+    }
+               
+  }).showToast();
+
+
    if(existingItem){
     //se o item já existe, aumenta apenas a quantidade + 1
      existingItem.quantity += 1;
@@ -92,7 +106,8 @@ function updateCartModal(){
     `
 
     total += item.price * item.quantity;
-
+ 
+   
     cartItemsContainer.appendChild(cartItemElement)
   })
 
@@ -178,7 +193,7 @@ checkoutBtn.addEventListener("click", function(){
     //Enviar o pedido para api whats
     const cartItems = cart.map((item) =>{
         return(
-          `${item.name} Quantidade: (${item.quantity}) preço: R$${item.price} |`  
+          `${item.name} Quantidade: (${item.quantity}) preço: R$${item.price} /`  
         )
     }).join("")
    
